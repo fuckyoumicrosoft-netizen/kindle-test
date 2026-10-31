@@ -8,14 +8,16 @@ body.h #txt{writing-mode:horizontal-tb;-webkit-writing-mode:horizontal-tb;-epub-
 p{margin:0 0 0 0.6em;text-indent:1em}
 body.h p{margin:0 0 .8em 0}
 .ctx{color:#888}
-rt{font-size:11px}
+rt{font-size:0.5em}
 a.d{color:#000;text-decoration:none;display:inline-block;padding:6px;font-size:24px}
-.hl-name{text-decoration:underline}
+.hl-name{font-weight:bold;color:#b8235a}
+body.nf rt{display:none}
+#top a.b{border:1px solid #000;padding:4px 8px;margin-left:4px;display:inline-block}
 #pn{display:none;position:fixed;left:0;right:0;bottom:0;max-height:55%;overflow:auto;background:#fff;border-top:3px solid #000;padding:12px 14px 16px;font-size:19px;line-height:1.5;writing-mode:horizontal-tb;-webkit-writing-mode:horizontal-tb}
 #cl{float:right;font-size:20px;border:2px solid #000;background:#fff;padding:8px 16px}
 .nl{font-weight:bold}
 </style></head><body>
-<div id="top">告白 第4章 s552– · <a id="tg" href="?h=1">横書き</a> · <a href="#" onclick="return sm()">集計 summary</a></div>
+<div id="top">告白 第4章 s552– · <a id="tg" href="?h=1">横書き</a> · <a href="#" onclick="return sm()">集計 summary</a><br><a class="b" href="#" onclick="return fz(-2)">A−</a><a class="b" href="#" onclick="return fz(2)">A＋</a><a class="b" id="fg" href="#" onclick="return tf()">ふりがな ON</a></div>
 <div id="txt">
 <p class="ctx"><span class="sen" id="s550"><ruby>五<rt>ご</rt></ruby><ruby>分<rt>ぷん</rt></ruby>くらいたって、ようやく<span class="hl-name"><ruby>森口<rt>もりぐち</rt></ruby></span>が<ruby>口<rt>くち</rt></ruby>を<ruby>開<rt>ひら</rt></ruby>いた。<a class="d" href="#" onclick="return t('s550')">◇</a></span> <span class="sen" id="s551"><ruby>母<rt>はは</rt></ruby>さんに<ruby>向<rt>む</rt></ruby>き<ruby>直<rt>なお</rt></ruby>る。<a class="d" href="#" onclick="return t('s551')">◇</a></span> </p>
 <p><span class="sen" id="s552">「<ruby>母親<rt>ははおや</rt></ruby>としては、<span class="hl-name"><ruby>渡辺<rt>わたなべ</rt></ruby>くん</span>も<span class="hl-name"><ruby>下村<rt>しもむら</rt></ruby></span>くんも<ruby>殺<rt>ころ</rt></ruby>してやりたい<ruby>思<rt>おも</rt></ruby>いです。しかし<ruby>私<rt>わたくし</rt></ruby>は<ruby>教師<rt>きょうし</rt></ruby>でもあります。<ruby>警察<rt>けいさつ</rt></ruby>に<ruby>真相<rt>しんそう</rt></ruby>を<ruby>話<rt>はな</rt></ruby>し<ruby>然<rt>しか</rt></ruby>るべき<ruby>処罰<rt>しょばつ</rt></ruby>を<ruby>受<rt>う</rt></ruby>けさせるのは<ruby>大人<rt>おとな</rt></ruby>としての<ruby>義務<rt>ぎむ</rt></ruby>ですが、<ruby>教師<rt>きょうし</rt></ruby>には<ruby>子供<rt>こども</rt></ruby>たちを<ruby>守<rt>まも</rt></ruby>る<ruby>義務<rt>ぎむ</rt></ruby>があります。<ruby>警察<rt>けいさつ</rt></ruby>が<ruby>事故<rt>じこ</rt></ruby>と<ruby>判断<rt>はんだん</rt></ruby>したのなら、<ruby>今<rt>いま</rt></ruby>さらそれを<ruby>蒸<rt>む</rt></ruby>し<ruby>返<rt>かえ</rt></ruby>すつもりはありません」<a class="d" href="#" onclick="return t('s552')">◆</a></span> </p>
@@ -49,4 +51,11 @@ for(var i=0;i<d[1].length;i++){h+='<p style="text-indent:0;margin:.6em 0 0"><spa
 document.getElementById('pc').innerHTML=h;document.getElementById('pn').style.display='block';cur=id;lg('diamond_tap',id);return false;}
 function hide(){if(cur){lg('panel_close',cur);}document.getElementById('pn').style.display='none';cur=null;}
 setInterval(function(){if(!document.hidden){S.sec+=15;sv();}},15000);
+
+var P;try{P=JSON.parse(localStorage.getItem('kp')||'null');}catch(e){P=null;}if(!P){P={f:22,nf:0};}
+function ps(){try{localStorage.setItem('kp',JSON.stringify(P));}catch(e){}}
+function ap(){document.getElementById('txt').style.fontSize=P.f+'px';var c=document.body.className.replace(/\s*nf/g,'');document.body.className=c+(P.nf?' nf':'');document.getElementById('fg').innerHTML=P.nf?'ふりがな OFF':'ふりがな ON';}
+function fz(d){P.f=Math.max(14,Math.min(40,P.f+d));ps();ap();return false;}
+function tf(){P.nf=P.nf?0:1;ps();ap();return false;}
+ap();
 </script></body></html>
