@@ -77,9 +77,9 @@ top.sort(function(a,b){return S.wd[b]-S.wd[a];});k=[];for(i=0;i<top.length;i++){
 var t=cd();
 var h='<div class="nl">Session summary (photograph this)</div><div>'+Math.round(S.sec/60)+' min · opened '+u.length+'/31 ('+n+'◆ '+(u.length-n)+'◇) · English '+S.rev.length+' · words '+S.wn+' taps / '+S.wo.length+'</div>'+
 (k.length?'<div>'+k.join(', ')+'</div>':'')+'<div>+'+(S.wo.length-top.length)+' other words in the code</div>'+qh(t)+
-'<p style="text-indent:0"><a href="#" onclick="return rs()">Reset counts</a></p>';
+'<p style="text-indent:0"><a id="rsl" href="#" onclick="return rs()">Reset counts</a></p>';
 document.getElementById('pc').innerHTML=h;document.getElementById('pn').style.display='block';cur=null;cw=null;return false;}
-function rs(){if(confirm('Reset counts?')){S={t0:new Date().getTime(),taps:[],sec:0,rev:[],wd:{},wo:[],wn:0};sv();hide();}return false;}
+var RA=0;function rs(){var e=document.getElementById('rsl');if(!RA){RA=1;if(e){e.innerHTML='Tap again to reset';}setTimeout(function(){RA=0;var f=document.getElementById('rsl');if(f){f.innerHTML='Reset counts';}},5000);return false;}RA=0;S={t0:new Date().getTime(),taps:[],sec:0,rev:[],wd:{},wo:[],wn:0};sv();sm();var g=document.getElementById('rsl');if(g){g.innerHTML='Counts reset ✓';}return false;}
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 function t(id){if(P.rp)return false;cw=null;if(cur===id){hide();return false;}var d=D[id];var h='<a id="eb" href="#" onclick="return rv()">英訳を見る — tap to show English</a>';
 for(var i=0;i<d[1].length;i++){h+='<p style="text-indent:0;margin:.6em 0 0"><span class="nl">'+esc(d[1][i][0])+'</span> '+esc(d[1][i][1])+'</p>';}
